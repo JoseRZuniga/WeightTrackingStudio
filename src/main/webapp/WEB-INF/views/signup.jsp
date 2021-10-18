@@ -1,62 +1,84 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<html>
+<html lang="en">
 
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-	crossorigin="anonymous">
-<link href="<c:url value='resources/static/css/style.css' />"rel="stylesheet"></link>
-
-<title>Create Account</title>
-<style>
-</style>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="<c:url value='resources/static/js/app.js' />"></script>
+	<script src="<c:url value='resources/static/js/service/user.service.js' />"></script>
+	<script src="<c:url value='resources/static/js/controller/user.controller.js' />"></script>
+	
+	<title>Create Account</title>
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link href="<c:url value='resources/static/css/style.css' />"rel="stylesheet"></link>
 </head>
-<body>
+<body ng-app="myApp">
 	<p><a href="/">Return to Homepage</a></p> 
-	<div class="signup-form">
-		<form action="dashboard">
-			<h2 class="text-center">Sign Up</h2>
+	<div class="signup-form" ng-controller="UserController as ctrl">
+		<form ng-submit="ctrl.addUser()" name="userForm">
+			<h2 class="text-center"><span class="lead">Sign Up</span></h2>
+			<input type="hidden" ng-model="ctrl.id" />
+			
 			<div class="form-group">
-				<label>Name</label> <input type="text" class="form-control"
-					placeholder="Enter your full name" required="required">
+				<label for="name">Name</label> 
+				<input type="text" ng-model="ctrl.user.name" id="name" class="name form-control input-sm"  placeholder="Enter your full name" required="required">
+				<div class="has-error" ng-show="userForm.$dirty">
+					<span ng-show="userForm.name.$error.required">This is a required field</span> 
+					<span ng-show="userForm.name.$error.minlength">Minimum length required is 3</span> 
+					<span ng-show="userForm.name.$invalid">This field is invalid </span>
+				</div>
 			</div>
+			
 			<div class="form-group">
-				<label>Age (Optional)</label> <input type="text"
-					class="form-control" placeholder="Enter your age">
+				<label for="age">Age (Optional)</label> 
+				<input type="text" ng-model="ctrl.user.age" id="age" class="age form-control input-sm" placeholder="Enter your age">
 			</div>
+			
 			<div class="form-group">
-				<label>Email Address</label> <input type="email"
-					class="form-control" placeholder="Enter your email address"
-					required="required">
+				<label for="email">Email Address</label> 
+				<input type="email" ng-model="ctrl.user.email" id="email" class="email form-control input-sm" placeholder="Enter your email address" required="required">
 			</div>
+					
 			<div class="form-group">
-				<label>Password</label> <input type="password" class="form-control"
-					placeholder="Enter a password" required="required">
-			</div>
-			<div class="form-group">
-				<button type="submit" class="btn btn-primary btn-block">Submit</button>
+				<div class="form-actions floatRight">
+							<input type="submit" value="Add" class="btn btn-primary btn-sm">
+				</div>
 			</div>
 		</form>
 		<p class="text-center">
 			Have an account?<a href="login"> Log In</a>
 		</p>
 	</div>
+	<div>
+		<div class="panel-heading"><span class="lead">List of Users</span></div>
+		<div class="tablecontainer">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Address</th>
+						<th>Email</th>
+						<th width="20%"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="u in ctrl.users">
+						<td><span ng-bind="u.id"></span></td>
+						<td><span ng-bind="u.name"></span></td>
+						<td><span ng-bind="u.age"></span></td>
+						<td><span ng-bind="u.email"></span></td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </body>
-	<script>
-	setTimeout(() => {
-		alert("Please fill in the form. If no longer active in the next 5 minutes, you will be return to home page.");
-		}, 10000);
-	
-	const btn = document.querySelector('button');
-    btn.addEventListener('click', () => {
-      alert('You have created an account!');
-    });
-	</script>
+	<script type="text/javascript"></script>
 </html>
