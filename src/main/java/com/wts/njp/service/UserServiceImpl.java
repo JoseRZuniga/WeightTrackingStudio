@@ -10,17 +10,32 @@ import com.wts.njp.model.User;
 @Service
 public class UserServiceImpl implements UserService{
 	
-	private static Long userId;
+	private static Long userId = new Long(0);
 	private static List<User> users = new ArrayList<User>();
 	
+	static {
+		users = populateUsers();
+	}
+
+	private static List<User> populateUsers() {
+
+		User user1 = new User();
+		user1.setId(++userId);
+		user1.setName("Jose");
+		user1.setAge("23");
+		user1.setEmail("jr@gmail.com");
+
+		users.add(user1);
+
+		return users;
+	}
 	
 	
-	@Override
 	public List<User> retrieveAllUsers(){
 		return users;
 	}
 	
-	@Override
+	
 	public User saveUser(User user) {
 		user.setId(++userId);
 		users.add(user);

@@ -1,9 +1,8 @@
 C:\Users\j.rodriguez-zuniga\eclipse-workspace\WeigthTrackingStudio\src\main\java\com\wts\njp\config\RestResponseHandler.java
 C:\Users\j.rodriguez-zuniga\eclipse-workspace\WeigthTrackingStudio\src\main\java\com\wts\njp\config\WTSConfig.java
-C:\Users\j.rodriguez-zuniga\eclipse-workspace\WeigthTrackingStudio\src\main\java\com\wts\njp\controller\DashboardController.java
-C:\Users\j.rodriguez-zuniga\eclipse-workspace\WeigthTrackingStudio\src\main\java\com\wts\njp\controller\LogInController.java
 C:\Users\j.rodriguez-zuniga\eclipse-workspace\WeigthTrackingStudio\src\main\java\com\wts\njp\service\UserServiceImpl.java
-C:\Users\j.rodriguez-zuniga\eclipse-workspace\WeigthTrackingStudio\src\main\java\com\wts\njp\config\WTSWebInitializer.java
+C:\Users\j.rodriguez-zuniga\eclipse-workspace\WeigthTrackingStudio\src\main\java\com\wts\njp\model\WeightTracking.java
 C:\Users\j.rodriguez-zuniga\eclipse-workspace\WeigthTrackingStudio\src\main\java\com\wts\njp\controller\HomeController.java
 C:\Users\j.rodriguez-zuniga\eclipse-workspace\WeigthTrackingStudio\src\main\java\com\wts\njp\model\User.java
+C:\Users\j.rodriguez-zuniga\eclipse-workspace\WeigthTrackingStudio\src\main\java\com\wts\njp\controller\UserController.java
 C:\Users\j.rodriguez-zuniga\eclipse-workspace\WeigthTrackingStudio\src\main\java\com\wts\njp\service\UserService.java

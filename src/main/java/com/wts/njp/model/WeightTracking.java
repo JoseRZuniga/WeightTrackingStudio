@@ -2,7 +2,7 @@ package com.wts.njp.model;
 
 import java.math.BigDecimal;
 
-public class Tracking {
+public class WeightTracking {
 	
 	private String date;
 	private BigDecimal weight;

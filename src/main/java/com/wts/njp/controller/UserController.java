@@ -37,6 +37,10 @@ public class UserController {
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 	
-	
+	@PutMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Void> updateUser(@RequestBody User user) {
+		userService.saveUser(user);
+		return new ResponseEntity<Void>(HttpStatus.OK);
+	}
 
 }

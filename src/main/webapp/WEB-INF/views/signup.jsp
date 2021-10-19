@@ -17,12 +17,13 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link href="<c:url value='resources/static/css/style.css' />"rel="stylesheet"></link>
 </head>
-<body ng-app="myApp">
+<body ng-app="myApp" class="ng-cloak">
 	<p><a href="/">Return to Homepage</a></p> 
 	<div class="signup-form" ng-controller="UserController as ctrl">
+	
 		<form ng-submit="ctrl.addUser()" name="userForm">
-			<h2 class="text-center"><span class="lead">Sign Up</span></h2>
-			<input type="hidden" ng-model="ctrl.id" />
+			<h2 class="text-center">Sign Up</h2>
+			<input type="hidden" ng-model="ctrl.user.id" />
 			
 			<div class="form-group">
 				<label for="name">Name</label> 
@@ -46,37 +47,37 @@
 					
 			<div class="form-group">
 				<div class="form-actions floatRight">
-							<input type="submit" value="Add" class="btn btn-primary btn-sm">
+					<input type="submit" value="Add" class="btn btn-primary btn-sm">
+					<input type="submit" value="Check Trial" class="btn btn-primary btn-sm">
 				</div>
 			</div>
 		</form>
-		<p class="text-center">
-			Have an account?<a href="login"> Log In</a>
-		</p>
-	</div>
-	<div>
-		<div class="panel-heading"><span class="lead">List of Users</span></div>
-		<div class="tablecontainer">
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Name</th>
-						<th>Address</th>
-						<th>Email</th>
-						<th width="20%"></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="u in ctrl.users">
-						<td><span ng-bind="u.id"></span></td>
-						<td><span ng-bind="u.name"></span></td>
-						<td><span ng-bind="u.age"></span></td>
-						<td><span ng-bind="u.email"></span></td>
-
-					</tr>
-				</tbody>
-			</table>
+		<p class="text-center">Have an account?<a href="login"> Log In</a></p>
+		<p class="text-center">Check Out the <a href="dashboard"> Trial!</a></p>
+		<div>
+			<div class="panel-heading"><span class="lead">List of Users</span></div>
+			<div class="tablecontainer">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Age</th>
+							<th>Email</th>
+							<th width="20%"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="u in ctrl.users">
+							<td><span ng-bind="u.id"></span></td>
+							<td><span ng-bind="u.name"></span></td>
+							<td><span ng-bind="u.age"></span></td>
+							<td><span ng-bind="u.email"></span></td>
+	
+						</tr>
+					</tbody>
+				</table>
+			</div>	
 		</div>
 	</div>
 </body>
