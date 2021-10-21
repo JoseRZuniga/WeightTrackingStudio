@@ -1,13 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html lang="en">
 
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-	<script src="<c:url value='resources/static/js/app.js' />"></script>
-	<script src="<c:url value='resources/static/js/service/user.service.js' />"></script>
-	<script src="<c:url value='resources/static/js/controller/user.controller.js' />"></script>
 	
 	<title>Dashboard</title>
 	
@@ -15,7 +14,7 @@
 	<link href="<c:url value='resources/static/css/style.css' />"rel="stylesheet"></link>
 </head>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 		<div class="container">
 			<a class="navbar-brand" href="/">Weight Tracking Studio (Trial)</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
