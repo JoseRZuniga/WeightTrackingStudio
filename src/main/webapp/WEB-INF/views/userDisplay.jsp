@@ -3,29 +3,28 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<title>Weight Logging</title>
+	
+	
+	<title>New User Display</title>
 	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link href="<c:url value='resources/static/css/style.css' />"rel="stylesheet"></link>
+</head>
 <body>
-	<h2 class="text-center">Submitted Log Information</h2>
-	<table class="login-form">
-		<tr>
-			<td>Submitted Date:</td>
-			<td>
-				<p>${submittedWeight.date}</p>
-			</td>
-		</tr>
-		<tr>
-			<td>Submitted Weight:</td>
-			<td>
-				<p>${submittedWeight.weight}</p>
-			</td>
-		</tr>
-	</table>
+	
+	<div>
+		<form>
+			<p><strong>New User Created</strong></p>
+			<p>Name: ${submittedUser.name}</p>
+			<p>Age: ${submittedUser.age}</p>
+			<p>Email: ${submittedUser.email}</p>
+			<a href="dashboard" role="button">Go to Dashboard</a>
+			
+		</form>
+	</div>
 </body>
 </html>

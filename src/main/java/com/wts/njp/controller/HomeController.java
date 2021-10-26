@@ -2,12 +2,12 @@ package com.wts.njp.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.wts.njp.model.Log;
 import com.wts.njp.model.User;
-import com.wts.njp.model.WeightTracking;
 
 @Controller
 public class HomeController {
@@ -17,12 +17,12 @@ public class HomeController {
 		return new ModelAndView("index");
 	}
 	
-	@RequestMapping(value="/services", method = RequestMethod.GET)
+	@RequestMapping(value="/services")
 	public ModelAndView services() {
 		return new ModelAndView("services");
 	}
 	
-	@RequestMapping(value="/contact", method = RequestMethod.GET)
+	@RequestMapping(value="/contact")
 	public ModelAndView contact() {
 		return new ModelAndView("contact");
 	}
@@ -38,15 +38,19 @@ public class HomeController {
 	}
 	
 	// Creating a user
-	@RequestMapping(value="/signup", method = RequestMethod.GET)
+	@GetMapping(value="/signup")
 	public ModelAndView user() {
 		return new ModelAndView("signup", "command", new User());
 	}
-
+	
+	@RequestMapping(value="/addUser")
+	public ModelAndView addUser(User user, ModelMap model) {
+		return new ModelAndView("userDisplay", "submittedUser", user);
+	}
 	
 	// For adding weight
 	@RequestMapping(value= "/addWeight")
-	public ModelAndView addWeight(WeightTracking weight, ModelMap model) {
+	public ModelAndView addWeight(Log weight, ModelMap model) {
 		return new ModelAndView("logging", "submittedWeight", weight);
 	}
 	

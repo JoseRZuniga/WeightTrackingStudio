@@ -22,7 +22,6 @@ public class WTSConfig implements WebMvcConfigurer {
 		return resolver;
 	}
 	
-	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
