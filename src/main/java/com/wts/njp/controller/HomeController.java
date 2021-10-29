@@ -1,12 +1,10 @@
 package com.wts.njp.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.wts.njp.model.Log;
 import com.wts.njp.model.User;
 
 @Controller
@@ -44,14 +42,14 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value="/addUser")
-	public ModelAndView addUser(User user, ModelMap model) {
+	public ModelAndView addUser(User user) {
 		return new ModelAndView("userDisplay", "submittedUser", user);
 	}
 	
-	// For adding weight
-	@RequestMapping(value= "/addWeight")
-	public ModelAndView addWeight(Log weight, ModelMap model) {
-		return new ModelAndView("logging", "submittedWeight", weight);
-	}
+//	// For adding weight
+//	@RequestMapping(value= "/addWeight")
+//	public ModelAndView addWeight(Log weight, ModelMap model) {
+//		return new ModelAndView("logging", "submittedWeight", weight);
+//	}
 	
 }
