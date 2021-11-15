@@ -43,6 +43,12 @@
 			</div>
 		</div>
 	</nav>
-
+	
+	<p>
+		<a href="dashboard" role="button">Go to Dashboard</a>
+	</p>
+	<p>
+		<a href="allusers" role="button">Go to List of all Users</a>
+	</p>
 </body>
 </html>

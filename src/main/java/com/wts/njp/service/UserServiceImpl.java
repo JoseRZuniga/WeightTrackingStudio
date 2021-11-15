@@ -1,60 +1,46 @@
 package com.wts.njp.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.wts.njp.dao.UserDao;
 import com.wts.njp.model.User;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService{
 	
-	private static Long userId = new Long(0);
-	private static List<User> users = new ArrayList<User>();
 	
-	static {
-		users = populateUsers();
+    UserDao userDao;
+    
+    @Autowired
+	public void setUserDao(UserDao dao) {
+		this.userDao = dao;
 	}
 
-	private static List<User> populateUsers() {
-
-		User user1 = new User();
-		user1.setId(++userId);
-		user1.setName("Jose");
-		user1.setAge("23");
-		user1.setEmail("jr@gmail.com");
-
-		users.add(user1);
-
-		return users;
-	}
 	
-	
-	public List<User> retrieveAllUsers(){
-		return users;
-	}
-	
-	
-	public User saveUser(User user) {
-		user.setId(++userId);
-		users.add(user);
-		return user;
-	}
-	
-	public static Long getUserId() {
-		return userId;
-	}
-	public static void setUserId(Long userId) {
-		UserServiceImpl.userId = userId;
+	public List<User> listAllUsers() {
+		return userDao.listAllUsers();
 	}
 
-	public static List<User> getUsers() {
-		return users;
+	
+	public void saveOrUpdate(User user) {
+		userDao.saveOrUpdate(user);
 	}
 
-	public static void setUsers(ArrayList<User> users) {
-		UserServiceImpl.users = users;
+	
+	public User findUserById(Integer id) {
+		return userDao.findUserById(id);
 	}
 
+	
+	public void deleteUser(Integer id) {
+		userDao.deleteUser(id);
+	}
+     
+    
+     
 }

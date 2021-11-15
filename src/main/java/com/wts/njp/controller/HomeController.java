@@ -1,14 +1,40 @@
 package com.wts.njp.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wts.njp.model.User;
+import com.wts.njp.service.UserService;
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	UserService userService;
+	
+	// List users 
+    @RequestMapping(value = "/allusers" , method = RequestMethod.GET)
+    public ModelAndView list() {
+    	
+        List<User> list = userService.listAllUsers();
+        
+        return new ModelAndView("allusers", "list", list);
+    }
+    
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    public ModelAndView add() {
+    	return new ModelAndView("registration", "command", new User());
+    }
+    
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    public ModelAndView save(User user) {
+    	return new ModelAndView("success", "saveEmployee", user);
+    }
 	
 	@RequestMapping(value= "/")
 	public ModelAndView home() {
@@ -36,7 +62,7 @@ public class HomeController {
 	}
 	
 	// Creating a user
-	@GetMapping(value="/signup")
+	@RequestMapping(value="/signup", method=RequestMethod.GET)
 	public ModelAndView user() {
 		return new ModelAndView("signup", "command", new User());
 	}
@@ -45,6 +71,7 @@ public class HomeController {
 	public ModelAndView addUser(User user) {
 		return new ModelAndView("userDisplay", "submittedUser", user);
 	}
+	
 	
 //	// For adding weight
 //	@RequestMapping(value= "/addWeight")

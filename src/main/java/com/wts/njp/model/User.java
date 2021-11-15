@@ -1,23 +1,47 @@
 package com.wts.njp.model;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 
-@Component
+
+@Entity
+@Table(name="test1")
 public class User {
-	
 
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	
-	private Long id; 
+	@Column(name="name")
 	private String name;
-	private String age;
-	private String email;
-
 	
-	public Long getId() {
+	@Column(name="age")
+	private Integer age;
+	
+	@Column(name="email")
+	private String email;
+	
+	public User() {
+		
+	}
+	
+	public User(Integer id, String name, Integer age, String email) {
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.email = email;
+	}
+	
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -26,10 +50,10 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getAge() {
+	public Integer getAge() {
 		return age;
 	}
-	public void setAge(String age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 	
@@ -39,5 +63,4 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
 }
