@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="test1")
+@Table(name="user")
 public class User {
 
 
@@ -63,4 +63,11 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	@Override
+	   public int hashCode() {
+	   int result = getId() != null ? getId().hashCode() : 0;
+	       result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+	       return result;
+	   }
 }

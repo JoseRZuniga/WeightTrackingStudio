@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,40 +18,30 @@
  
     <h2>Registration Form</h2>
   
-    <form method="POST" modelAttribute="user">
-        <input type="hidden" path="id" id="id"/>
+    <form:form action="save" method="post" modelAttribute="userForm">
+        <form:hidden path="id"/>
         <table>
             <tr>
-                <td><label for="name">Name: </label> </td>
-                <td><input path="name" id="name"/></td>
+                <td>Name:</td>
+                <td><form:input path="name"/></td>
             </tr>
             
             <tr>
-                <td><label for="age">Age: </label> </td>
-                <td><input path="age" id="age"/></td>
+                <td>Age:</td>
+                <td><form:input path="age"/></td>
             </tr>
             
             <tr>
-                <td><label for="email">Email: </label> </td>
-                <td><input path="email" id="email"/></td>
+                <td>Email:</td>
+                <td><form:input path="email"/></td>
             </tr>
      
             <tr>
-                <td colspan="3">
-                    <c:choose>
-                        <c:when test="${edit}">
-                            <input type="submit" value="Update"/>
-                        </c:when>
-                        <c:otherwise>
-                            <input type="submit" value="Register"/>
-                        </c:otherwise>
-                    </c:choose>
-                </td>
+            	<td></td>
+            	<td><button type="Submit">Save</button></td>
             </tr>
         </table>
-    </form>
-    <br/>
-    <br/>
-    Go back to <a href="<c:url value='/list' />">List of All Users</a>
+    </form:form>
+    <a href="<c:url value='/list' />">List of All Users</a>
 </body>
 </html>

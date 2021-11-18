@@ -3,9 +3,13 @@ package com.wts.njp.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wts.njp.model.User;
@@ -18,22 +22,52 @@ public class HomeController {
 	UserService userService;
 	
 	// List users 
-    @RequestMapping(value = "/allusers" , method = RequestMethod.GET)
+    @RequestMapping(value = "/list" , method = RequestMethod.GET)
     public ModelAndView list() {
     	
+    	ModelAndView model = new ModelAndView("allusers");
         List<User> list = userService.listAllUsers();
         
-        return new ModelAndView("allusers", "list", list);
+        model.addObject("list", list);
+        
+        return model;
     }
     
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public ModelAndView add() {
-    	return new ModelAndView("registration", "command", new User());
+    @RequestMapping(value = "/update-{id}", method = RequestMethod.GET)
+    public ModelAndView updateUser(@PathVariable("id") Integer id) {
+    	ModelAndView model = new ModelAndView("registration");
+    	User user = userService.findUserById(id);
+    	
+    	model.addObject("userForm", user);
+    	
+    	return model;
     }
     
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ModelAndView save(User user) {
-    	return new ModelAndView("success", "saveEmployee", user);
+    @RequestMapping(value = "/delete-{id}", method = RequestMethod.GET)
+    public ModelAndView deleteUser(@PathVariable("id") Integer id) {
+    	userService.deleteUser(id);
+    	
+    	return new ModelAndView("redirect:/list");
+    }
+    
+    
+    
+    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    public ModelAndView addUser() {
+    	ModelAndView model = new ModelAndView("registration");
+    	User user = new User();
+    	
+    	model.addObject("userForm", user);
+    	
+    	return model;
+    }
+    
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public ModelAndView saveUser (@ModelAttribute ("userForm") User user) {
+    	
+    	userService.saveOrUpdate(user);
+    	
+    	return new ModelAndView("redirect:/list");
     }
 	
 	@RequestMapping(value= "/")

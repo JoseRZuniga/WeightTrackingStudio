@@ -6,7 +6,6 @@
 //
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.context.MessageSource;
-//import org.springframework.stereotype.Controller;
 //import org.springframework.ui.ModelMap;
 //import org.springframework.validation.BindingResult;
 //import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,30 +20,21 @@
 //
 //
 //@RequestMapping(value ="/users")
-//@Controller
+//@RestController
 //public class UserController {
 //	
 //	@Autowired
 //	UserService userService;
 //	
-//	// List users 
-//    @RequestMapping(value = "/allusers" , method = RequestMethod.GET)
+//    // List users 
+//    @RequestMapping(value = "/list" , method = RequestMethod.GET)
 //    public ModelAndView list() {
 //    	
+//    	ModelAndView model = new ModelAndView("users/allusers");
 //        List<User> list = userService.listAllUsers();
 //        
-//        return new ModelAndView("allusers", "list", list);
+//        model.addObject("list", list);
+//        
+//        return model;
 //    }
-//    
-//    @RequestMapping(value = "/registration", method = RequestMethod.GET)
-//    public ModelAndView add() {
-//    	return new ModelAndView("registration", "command", new User());
-//    }
-//    
-//    @RequestMapping(value = "/registration", method = RequestMethod.POST)
-//    public ModelAndView save(User user) {
-//    	return new ModelAndView("success", "saveEmployee", user);
-//    }
-//    
-//    
 //}

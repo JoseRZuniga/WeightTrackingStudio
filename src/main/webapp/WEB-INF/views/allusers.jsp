@@ -7,28 +7,45 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
 <title>All Users</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link href="<c:url value='resources/static/css/style.css' />"rel="stylesheet"></link>
+
 </head>
 <body>
-    <h2>List of Users</h2>  
-    <table>
-        <tr>
-            <td>Name</td>
-            <td>Age</td>
-            <td>Email</td><td></td>
-        </tr>
-        <c:forEach items="${list}" var="list">
-            <tr>
-            <td>${list.name}</td>
-            <td>${list.age}</td>
-            <td>${list.email}</td>
-            </tr>
-        </c:forEach>
-    </table>
-    <br/>
-    <a href="registration">Add New User</a>
+	<h2>List of Users</h2>
+	<div>
+		<div class="tablecontainer">
+    	<table class="table table-borderless">
+	    	<thead>
+		        <tr>
+		        	<td>Id</td>
+		            <td>Name</td>
+		            <td>Age</td>
+		            <td>Email</td>
+		            <td colspan="2">Action</td>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    	<c:forEach items="${list}" var="list">
+	            <tr>
+		            <td>${list.id}</td>
+		            <td>${list.name}</td>
+		            <td>${list.age}</td>
+		            <td>${list.email}</td>
+		          	<td>
+		          		<a href="update-${list.id}">Update</a>
+		          	</td>
+		          	<td>
+		          		<a href="delete-${list.id}">Delete</a>
+		          	</td>
+	            </tr>
+	        	</c:forEach>
+		    </tbody>
+   	 	</table>
+   	 	</div>
+	</div>
+    <a href="add">Add New User</a>
 </body>
 </html>
