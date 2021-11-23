@@ -39,18 +39,54 @@
 			</div>
 		</div>
 	</nav>
-	<header class="jumbotron jumbotron-fluid">
-		<div class="container-fluid text-center">
+	<br>
+	<br>
+	<div class="signup-form" ng-controller="LogController as ctrl">
+	
+		<form ng-submit="ctrl.addLog()" name="logForm">
+			<h2 class="text-center">Weight Logger</h2>
 			
-			<p class="lead pb-4">
-				Some of our services.
-			</p>
-			<p>
-				<a href="logger" class="btn btn-primary btn-lg" role="button">Go to Logger</a>
-				<a href="list" class="btn btn-primary btn-lg" role="button">Go to List of all Users</a>
-			</p>
+			<input type="hidden" ng-model="ctrl.log.id" />
+			<div class="form-group">
+				<label for="date">Date</label> 
+				<input type="text" ng-model="ctrl.log.date" id="date" class="date form-control input-sm"  placeholder="Enter log date:" required="required">
+			</div>
+			
+			<div class="form-group">
+				<label for="weight">Weight</label> 
+				<input type="number" ng-model="ctrl.log.weight" id="weight" class="weight form-control input-sm" placeholder="Enter your weight:">
+			</div>
+			
+			<div class="form-group">
+				<div class="form-actions floatRight">
+					<input type="submit" value="Log" class="btn btn-primary btn-sm">					
+				</div>
+			</div>
+		</form>
+
+		<div>
+			<div class="panel-heading"><span class="lead">Logs</span></div>
+			<div class="tablecontainer">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Date</th>
+							<th>Weight</th>
+							<th width="20%"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="u in ctrl.logs">
+							<td><span ng-bind="u.id"></span></td>
+							<td><span ng-bind="u.date"></span></td>
+							<td><span ng-bind="u.weight"></span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>	
 		</div>
-	</header>
+	</div>
 
 	
 	

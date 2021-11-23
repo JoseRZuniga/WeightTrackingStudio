@@ -12,14 +12,14 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link href="<c:url value='resources/static/css/style.css' />"rel="stylesheet"></link>
 
-<title>All Users</title>
+<title>Updating User</title>
 </head>
 <body>
  	<p><a href="/">Return to Homepage</a></p> 
  
   	<div class="signup-form">
-  		<form:form action="save" method="post" modelAttribute="userForm">
-	        <h2 class="text-center">Registration Form</h2>
+  		<form:form action="update" method="post" modelAttribute="userForm">
+	        <h2 class="text-center">Update Form</h2>
 	        <form:hidden path="id"/>
 	        
 	        	<div class="form-group">
@@ -42,7 +42,7 @@
 				
 				<div class="form-group">
 					<div class="form-actions floatRight">
-						<input type="submit" value="Sign Up" class="btn btn-primary btn-sm">
+						<input type="submit" value="Update" class="btn btn-primary btn-sm">
 					</div>
 				</div>
 	    </form:form>

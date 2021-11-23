@@ -3,6 +3,7 @@ package com.wts.njp.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,8 +38,11 @@ public class UserDaoImpl implements UserDao {
 	}
 	
 	public void deleteUser(Integer id) {
-		User user = (User) getSession().get(User.class, id);
-		getSession().delete(user);
+		// specifying class name (User) not table name (user) 
+		String hql = "delete from User where id = :id";
+		Query query = getSession().createQuery(hql);
+		query.setInteger("id", id);
+		query.executeUpdate();
 	}
 
 	

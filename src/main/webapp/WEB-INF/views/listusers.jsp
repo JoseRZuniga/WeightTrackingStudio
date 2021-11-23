@@ -14,17 +14,29 @@
 
 </head>
 <body>
-	<h2>List of Users</h2>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="/">Weight Tracking Studio</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</div>
+	</nav>
+	<br>
+	
 	<div>
 		<div class="tablecontainer">
-    	<table class="table table-borderless">
+		<br>
+		<h3>List of Users</h3>
+    	<table class="table table-bordered">
 	    	<thead>
 		        <tr>
 		        	<td>Id</td>
 		            <td>Name</td>
 		            <td>Age</td>
 		            <td>Email</td>
-		            <td colspan="2">Action</td>
+		            <td colspan="2">Actions</td>
 		        </tr>
 		    </thead>
 		    <tbody>
@@ -35,10 +47,10 @@
 		            <td>${list.age}</td>
 		            <td>${list.email}</td>
 		          	<td>
-		          		<a href="update-${list.id}">Update</a>
+		          		<a href="update-${list.id}">Edit</a>
 		          	</td>
 		          	<td>
-		          		<a href="delete-${list.id}">Delete</a>
+		          		<a href="delete-${list.id}" >Delete</a>
 		          	</td>
 	            </tr>
 	        	</c:forEach>
@@ -46,6 +58,6 @@
    	 	</table>
    	 	</div>
 	</div>
-    <a href="add">Add New User</a>
+    <a href="add" class="btn btn-primary btn-lg" role="button">Add New User</a>
 </body>
 </html>

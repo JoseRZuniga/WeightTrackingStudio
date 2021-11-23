@@ -4,6 +4,7 @@ com\wts\njp\dao\UserDaoImpl.class
 com\wts\njp\controller\HomeController.class
 com\wts\njp\controller\LogController.class
 com\wts\njp\service\LogService.class
+com\wts\njp\controller\UserController.class
 com\wts\njp\model\Log.class
 com\wts\njp\service\LogServiceImpl.class
 com\wts\njp\config\HibernateConfig.class

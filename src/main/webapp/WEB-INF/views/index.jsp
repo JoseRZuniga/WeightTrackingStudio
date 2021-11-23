@@ -49,11 +49,8 @@
 				We help you track and progress through your weight loss journey.
 			</p>
 			<p>
-				<a href="signup" class="btn btn-primary btn-lg" role="button">Create
+				<a href="add" class="btn btn-primary btn-lg" role="button">Create
 					Account</a>
-			</p>
-			<p>
-				Have an account?<a href="login"> Log In</a>
 			</p>
 		</div>
 	</header>

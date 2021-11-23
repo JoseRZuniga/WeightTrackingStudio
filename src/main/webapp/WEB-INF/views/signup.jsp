@@ -23,8 +23,8 @@
 	<p><a href="/">Return to Homepage</a></p> 
 	
 	<div class="signup-form">
-		<h2 class="text-center">Sign Up</h2>
 		<form name="userForm" method="POST" action="addUser">
+			<h2 class="text-center">Sign Up</h2>
 			<div class="form-group">
 				<label>Name</label>
 				<input type="text" name="name" class="form-control" required="required"

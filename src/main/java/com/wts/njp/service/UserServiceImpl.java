@@ -31,19 +31,6 @@ public class UserServiceImpl implements UserService{
 		userDao.saveOrUpdate(user);
 	}
 	
-//	public void update(User user) {
-//		User entity = userDao.findUserById(user.getId());
-//		
-//		if(entity != null) {
-//			entity.setId(user.getId());
-//			entity.setName(user.getName());
-//			entity.setAge(user.getAge());
-//			entity.setEmail(user.getEmail());
-//		}
-//		
-//	}
-
-	
 	public User findUserById(Integer id) {
 		return userDao.findUserById(id);
 	}

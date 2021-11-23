@@ -64,10 +64,4 @@ public class User {
 		this.email = email;
 	}
 	
-	@Override
-	   public int hashCode() {
-	   int result = getId() != null ? getId().hashCode() : 0;
-	       result = 31 * result + (getName() != null ? getName().hashCode() : 0);
-	       return result;
-	   }
 }
