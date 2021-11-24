@@ -41,6 +41,7 @@
 	</nav>
 	<br>
 	<br>
+	
 	<div class="signup-form" ng-controller="LogController as ctrl">
 	
 		<form ng-submit="ctrl.addLog()" name="logForm">
@@ -87,8 +88,6 @@
 			</div>	
 		</div>
 	</div>
-
-	
 	
 </body>
 </html>

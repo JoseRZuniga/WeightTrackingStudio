@@ -59,5 +59,6 @@
    	 	</div>
 	</div>
     <a href="add" class="btn btn-primary btn-lg" role="button">Add New User</a>
+    
 </body>
 </html>

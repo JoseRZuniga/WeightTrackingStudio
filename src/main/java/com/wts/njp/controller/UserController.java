@@ -17,12 +17,9 @@ import com.wts.njp.service.UserService;
 @RestController
 public class UserController {
 	
-
-	
 	@Autowired
 	UserService userService;
 	
-
     @RequestMapping(value = "/list" , method = RequestMethod.GET)
     public ModelAndView listUsers() {
     	
@@ -33,7 +30,6 @@ public class UserController {
         
         return model;
     }
-    
     
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public ModelAndView addUser() {
@@ -79,8 +75,5 @@ public class UserController {
     	
     	return new ModelAndView("redirect:/list");
     }
-    
-    
-    
-    
+       
 }

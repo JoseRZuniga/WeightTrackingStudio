@@ -13,19 +13,16 @@ import com.wts.njp.model.User;
 @Transactional
 public class UserServiceImpl implements UserService{
 	
-	
     UserDao userDao;
     
     @Autowired
 	public void setUserDao(UserDao dao) {
 		this.userDao = dao;
 	}
-
 	
 	public List<User> listAllUsers() {
 		return userDao.listAllUsers();
 	}
-
 	
 	public void saveOrUpdate(User user) {
 		userDao.saveOrUpdate(user);
@@ -35,11 +32,8 @@ public class UserServiceImpl implements UserService{
 		return userDao.findUserById(id);
 	}
 
-	
 	public void deleteUser(Integer id) {
 		userDao.deleteUser(id);
 	}
-     
-    
      
 }

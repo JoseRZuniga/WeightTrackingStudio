@@ -15,7 +15,9 @@
 <title>All Users</title>
 </head>
 <body>
- 	<p><a href="/">Return to Homepage</a></p> 
+ 	<p>
+ 		<a href="/">Return to Homepage</a>
+ 	</p> 
  
   	<div class="signup-form">
   		<form:form action="save" method="post" modelAttribute="userForm">
@@ -47,5 +49,6 @@
 				</div>
 	    </form:form>
   	</div>
+  	
 </body>
 </html>

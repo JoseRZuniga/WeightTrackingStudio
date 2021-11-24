@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link href="<c:url value='resources/static/css/style.css' />"rel="stylesheet"></link>
 </head>
-<body ng-app="myApp" >
+<body>
 	
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 		<div class="container">
@@ -39,6 +39,7 @@
 			</div>
 		</div>
 	</nav>
+	
 	<header class="jumbotron jumbotron-fluid">
 		<div class="container-fluid text-center">
 			
@@ -51,8 +52,6 @@
 			</p>
 		</div>
 	</header>
-
-	
 	
 </body>
 </html>

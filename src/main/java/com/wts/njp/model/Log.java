@@ -18,13 +18,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class Log {
 	
-
 	private Long id;
-	
 	private String date;
-	
 	private Integer weight;
-	
 	
 	public Long getId() {
 		return id;

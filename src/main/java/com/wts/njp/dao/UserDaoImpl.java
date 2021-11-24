@@ -21,7 +21,6 @@ public class UserDaoImpl implements UserDao {
 		return sessionFactory.getCurrentSession();
 	}
 	
-	
 	@SuppressWarnings("unchecked")
 	public List<User> listAllUsers() {		
 		Criteria criteria = getSession().createCriteria(User.class);
@@ -44,8 +43,5 @@ public class UserDaoImpl implements UserDao {
 		query.setInteger("id", id);
 		query.executeUpdate();
 	}
-
-	
-	
 
 }

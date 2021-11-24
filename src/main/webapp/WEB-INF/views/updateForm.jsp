@@ -17,7 +17,7 @@
 <body>
  	<p><a href="/">Return to Homepage</a></p> 
  
-  	<div class="signup-form">
+  	<div class="user-form">
   		<form:form action="update" method="post" modelAttribute="userForm">
 	        <h2 class="text-center">Update Form</h2>
 	        <form:hidden path="id"/>

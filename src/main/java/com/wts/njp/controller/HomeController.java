@@ -34,14 +34,14 @@ public class HomeController {
 		return new ModelAndView("logger");
 	}
 	
-	@RequestMapping(value="/signup", method=RequestMethod.GET)
-	public ModelAndView user() {
-		return new ModelAndView("signup", "command", new User());
-	}
-	
-	@RequestMapping(value="/addUser")
-	public ModelAndView addUser(User user) {
-		return new ModelAndView("userDisplay", "submittedUser", user);
-	}
+//	@RequestMapping(value="/signup", method=RequestMethod.GET)
+//	public ModelAndView user() {
+//		return new ModelAndView("signup", "command", new User());
+//	}
+//	
+//	@RequestMapping(value="/addUser")
+//	public ModelAndView addUser(User user) {
+//		return new ModelAndView("userDisplay", "submittedUser", user);
+//	}
 	
 }
