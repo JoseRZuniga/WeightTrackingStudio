@@ -46,7 +46,7 @@
 			<h1 class="display-4">Best Solution for Your Weight Loss Tracking</h1>
 			
 			<p class="lead pb-4">
-				We help you track and progress through your weight loss journey.
+				Frontend
 			</p>
 			<p>
 				<a href="signup" class="btn btn-primary btn-lg" role="button">Create
