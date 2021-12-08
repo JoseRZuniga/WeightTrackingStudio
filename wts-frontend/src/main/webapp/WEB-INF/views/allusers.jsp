@@ -12,8 +12,14 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link href="<c:url value='resources/static/css/style.css' />"rel="stylesheet"></link>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script type="text/javascript"></script>
+	<script src="resources/static/app.js"></script>
+	<script src="resources/static/js/service/user.service.js"></script>
+	<script src="resources/static/js/controller/user.controller.js"></script>
+
 </head>
-<body>
+<body ng-app="myApp">
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 		<div class="container">
@@ -25,7 +31,7 @@
 	</nav>
 	<br>
 	
-	<div>
+	<div ng-controller="UserController as ctrl">
 		<div class="tablecontainer">
 		<br>
 		<h3>List of Users</h3>
@@ -40,24 +46,19 @@
 		        </tr>
 		    </thead>
 		    <tbody>
-		    	<c:forEach items="${list}" var="list">
-	            <tr>
-		            <td>${list.id}</td>
-		            <td>${list.name}</td>
-		            <td>${list.age}</td>
-		            <td>${list.email}</td>
+		    	<tr ng-repeat="u in ctrl.users">
+					<td><span ng-bind="u.id"></span></td>
+					<td><span ng-bind="u.name"></span></td>
+					<td><span ng-bind="u.age"></span></td>
+					<td><span ng-bind="u.email"></span></td>
 		          	<td>
-		          		<a href="update-${list.id}">Edit</a>
-		          	</td>
-		          	<td>
-		          		<a href="delete-${list.id}" >Delete</a>
+		          		<button type="button" ng-click="ctrl.edit(u.id)" class="btn btn-primary btn-sm">Edit</button>  
+		          		<button type="button" ng-click="ctrl.remove(u.id)" class="btn btn-primary btn-sm">Remove</button>
 		          	</td>
 	            </tr>
-	        	</c:forEach>
 		    </tbody>
    	 	</table>
    	 	</div>
 	</div>
-    <a href="add" class="btn btn-primary btn-lg" role="button">Add New User</a>
 </body>
 </html>

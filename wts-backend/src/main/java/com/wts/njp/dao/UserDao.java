@@ -6,12 +6,12 @@ import com.wts.njp.model.User;
 
 public interface UserDao {
 	
-	public List<User> listAllUsers();
+	List<User> listAllUsers();
 	
-	public void saveOrUpdate(User user);
+	void saveOrUpdate(User user);
 	
-	public User findUserById(Integer id);
+	User findUserById(Integer id);
 	
-	public void deleteUser(Integer id);
+	void deleteUser(Integer id);
 
 }
