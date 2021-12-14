@@ -7,7 +7,10 @@ import java.util.Map;
 
 import javax.transaction.Transactional;
 
+import org.apache.http.impl.client.HttpClients;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.client.ClientHttpRequestFactory;
+import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -20,12 +23,12 @@ public class UserManagerImpl implements UserManager{
 	private final String restURL = "http://localhost:8082/";
 	
 	@Autowired
-	private RestTemplate restTemplate;
+	private RestTemplate restTemplate; //= new RestTemplate(requestFactory);
 
-	@Override
+	
 	public List<UserView> listAllUsers() {
-		String url = restURL + "list";
-		UserView[] response = restTemplate.getForObject(url, UserView[].class);
+		String requestUri  = restURL + "user/";
+		UserView[] response = restTemplate.getForObject(requestUri , UserView[].class);
 		List<UserView> users = new ArrayList<>();
 		
 		for(UserView user : response) {
@@ -35,34 +38,38 @@ public class UserManagerImpl implements UserManager{
 		return users;
 	}
 
-	@Override
+	
 	public void saveUser(UserView user) {
-		String url = restURL + "save";
-		restTemplate.postForObject(url, user, UserView.class);
+		String requestUri  = restURL + "user/";
+		restTemplate.postForObject(requestUri , user, UserView.class);
 	}
 	
-	@Override
+	
 	public void updateUser(UserView user) {
-		String url = restURL + "update";
-		restTemplate.put(url, user);
+		String requestUri  = restURL + "user/{id}";
+		restTemplate.put(requestUri, user);
 	}	
 
-	@Override
+	
 	public UserView findUserById(Long id) {
-		String url = restURL + "{id}";
+		String requestUri  = restURL + "user/{id}";
 		Map<String, String> params = new HashMap<>();
 		params.put("id", Long.toString(id));
 		
-		return restTemplate.getForObject(url, UserView.class, params);
+		return restTemplate.getForObject(requestUri , UserView.class, params);
 	}
 
-	@Override
+	
 	public void deleteUser(Long id) {
-		String url = restURL + "delete-{id}";
+		String requestUri  = restURL + "user/{id}";
 		Map<String, String> params = new HashMap<>();
 		params.put("id", Long.toString(id));
 		
-		restTemplate.delete(url, params);
+		restTemplate.delete(requestUri, params);
 	}
 
+	
+//	Map<String, String> params = new HashMap<>();
+//	params.put("id", Long.toString(user.getId()));
+//	restTemplate.put(requestUri, user, params);
 }

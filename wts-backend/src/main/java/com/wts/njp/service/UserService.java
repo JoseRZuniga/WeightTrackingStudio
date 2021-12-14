@@ -8,10 +8,12 @@ public interface UserService {
 	
 	List<User> listAllUsers();
 	
-	void saveOrUpdate(User user);
+	void save(User user);
 	
-	User findUserById(Integer id);
+	void update(User user);
 	
-	void deleteUser(Integer id);
+	User findUserById(Long id);
+	
+	void deleteUser(Long id);
 
 }
