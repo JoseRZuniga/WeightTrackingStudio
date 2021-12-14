@@ -3,60 +3,14 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
-<title>Weight Tracking Studio</title>
-<style>
-	body {
-		padding-top: 56px;
-	}
-</style>
-
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>WTS Backend</title>
 </head>
 <body>
-
-	<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-		<div class="container">
-			<a class="navbar-brand" href="/">Weight Tracking Studio</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active"><a class="nav-link" href="/">Home
-							<span class="sr-only">(current)</span>
-					</a></li>
-					<li class="nav-item"><a class="nav-link" href="services">Services</a>
-					</li>
-					<li class="nav-item"><a class="nav-link" href="contact">Contact</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-
-	<header class="jumbotron jumbotron-fluid">
-		<div class="container-fluid text-center">
-			<h1 class="display-4">Best Solution for Your Weight Loss Tracking</h1>
-			
-			<p class="lead pb-4">
-				Backend
-			</p>
-			<p>
-				<a href="signup" class="btn btn-primary btn-lg" role="button">Create
-					Account</a>
-			</p>
-			<p>
-				Have an account?<a href="login"> Log In</a>
-			</p>
-		</div>
-	</header>
-
+	
+	<h3>Weight Tracking Studio Backend</h3>
 </body>
 </html>

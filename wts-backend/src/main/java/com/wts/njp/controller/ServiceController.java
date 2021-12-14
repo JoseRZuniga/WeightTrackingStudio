@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.wts.njp.model.User;
@@ -70,4 +71,8 @@ public class ServiceController {
         return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
     }
 	
+    @RequestMapping(value= "/")
+	public ModelAndView home() {
+		return new ModelAndView("index");
+	}
 }
