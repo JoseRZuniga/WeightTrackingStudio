@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.wts.njp.model.User;
-import com.wts.njp.service.UserService;
+import com.wts.njp.model.UserView;
+
 
 @Controller
 public class HomeController {
@@ -41,14 +41,18 @@ public class HomeController {
 	public ModelAndView logger() {
 		return new ModelAndView("logger");
 	}
+	@RequestMapping(value= "/allusers")
+	public ModelAndView allusers() {
+		return new ModelAndView("allusers");
+	}
 	
 	@RequestMapping(value="/signup", method=RequestMethod.GET)
 	public ModelAndView user() {
-		return new ModelAndView("signup", "command", new User());
+		return new ModelAndView("signup", "command", new UserView());
 	}
 	
 	@RequestMapping(value="/addUser")
-	public ModelAndView addUser(User user) {
+	public ModelAndView addUser(UserView user) {
 		return new ModelAndView("userDisplay", "submittedUser", user);
 	}
 	
