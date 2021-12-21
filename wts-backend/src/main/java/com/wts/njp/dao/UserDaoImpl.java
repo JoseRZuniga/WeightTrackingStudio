@@ -3,19 +3,24 @@ package com.wts.njp.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.wts.njp.model.User;
 
 @Repository
+@EnableTransactionManagement
+@Transactional
 public class UserDaoImpl implements UserDao {
 	
 	@Autowired
 	private SessionFactory sessionFactory;
+	
 	
 	private Session getSession() {
 		return sessionFactory.getCurrentSession();
@@ -27,8 +32,8 @@ public class UserDaoImpl implements UserDao {
 		return (List<User>) criteria.list();
 	}
 
-	public void saveOrUpdate(User user) {
-		getSession().saveOrUpdate(user);
+	public void save(User user) {
+		getSession().save(user);
 	}
 
 	public User findUserById(Long id) {
@@ -37,11 +42,11 @@ public class UserDaoImpl implements UserDao {
 	}
 	
 	public void deleteUser(Long id) {
-		// specifying class name (User) not table name (user) 
-		String hql = "delete from User where id = :id";
-		Query query = getSession().createQuery(hql);
-		query.setLong("id", id);
-		query.executeUpdate();
+		User user = (User) getSession().get(User.class, id);
+		getSession().delete(user);
 	}
+
+	
+	
 
 }

@@ -10,34 +10,50 @@ import com.wts.njp.dao.UserDao;
 import com.wts.njp.model.User;
 
 @Service
-
+@Transactional
 public class UserServiceImpl implements UserService{
 	
-	@Autowired
-    private UserDao userDao;
+	
+    UserDao userDao;
     
-    @Override
-    @Transactional
+    @Autowired
+	public void setUserDao(UserDao dao) {
+		this.userDao = dao;
+	}
+
+	@Override
 	public List<User> listAllUsers() {
 		return userDao.listAllUsers();
 	}
-	
-    @Override
-    @Transactional
-	public void saveOrUpdate(User user) {
-		userDao.saveOrUpdate(user);
+
+	@Override
+	public void save(User user) {
+		userDao.save(user);
 	}
 	
-    @Override
-    @Transactional
+	@Override
+	public void update(User user) {
+		User entity = userDao.findUserById(user.getId());
+		
+		if(entity != null) {
+		
+			entity.setName(user.getName());
+			entity.setAge(user.getAge());
+			entity.setEmail(user.getEmail());
+		}
+		
+	}
+	
+	@Override
 	public User findUserById(Long id) {
 		return userDao.findUserById(id);
 	}
-    
-    @Override
-    @Transactional
+
+	@Override
 	public void deleteUser(Long id) {
 		userDao.deleteUser(id);
 	}
+     
+    
      
 }

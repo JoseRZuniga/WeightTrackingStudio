@@ -29,7 +29,7 @@ public class HibernateConfig {
 	public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.wts.njp.model" }); // clean it up
+        sessionFactory.setPackagesToScan(new String[] { "com.wts.njp.model" });
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
 	}
@@ -51,7 +51,7 @@ public class HibernateConfig {
         properties.put("hibernate.format_sql", environment.getRequiredProperty("hibernate.format_sql"));
         return properties;        
     }
-    // Dont needs to be autowired
+     
     @Bean
     @Autowired
     public HibernateTransactionManager transactionManager(SessionFactory s) {

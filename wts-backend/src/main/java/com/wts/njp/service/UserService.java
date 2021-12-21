@@ -6,10 +6,14 @@ import com.wts.njp.model.User;
 
 public interface UserService {
 	
-
 	List<User> listAllUsers();
-	void saveOrUpdate(User user);
+	
+	void save(User user);
+	
+	void update(User user);
+	
 	User findUserById(Long id);
+	
 	void deleteUser(Long id);
 
 }

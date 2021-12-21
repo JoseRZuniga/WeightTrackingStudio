@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+
 @Entity
 @Table(name="user")
 public class User {
@@ -25,6 +27,10 @@ public class User {
 	@Column(name="email")
 	private String email;
 	
+	public User() {
+		
+	}
+	
 	public User(Long id, String name, Integer age, String email) {
 		this.id = id;
 		this.name = name;
@@ -32,8 +38,6 @@ public class User {
 		this.email = email;
 	}
 	
-	public User() {}
-
 	public Long getId() {
 		return id;
 	}
@@ -60,4 +64,10 @@ public class User {
 		this.email = email;
 	}
 	
+	@Override
+	   public int hashCode() {
+	   int result = getId() != null ? getId().hashCode() : 0;
+	       result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+	       return result;
+	   }
 }
