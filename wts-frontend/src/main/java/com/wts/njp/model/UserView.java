@@ -16,7 +16,7 @@ public class UserView {
 	@JsonProperty("email")
 	private String email;
 	
-	public UserView() {}
+
 	
 	public Long getId() {
 		return id;

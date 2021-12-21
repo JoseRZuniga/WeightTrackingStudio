@@ -34,15 +34,20 @@ public class UserManagerImpl implements UserManager{
 	}
 
 	
-	public void saveUser(UserView user) {
+	public UserView saveUser(UserView user) {
 		String requestUri  = restURL + "user/";
 		restTemplate.postForObject(requestUri , user, UserView.class);
+		return user;
 	}
 	
 	
-	public void updateUser(UserView user) {
+	public UserView updateUser(UserView user) {
 		String requestUri  = restURL + "user/{id}";
-		restTemplate.put(requestUri, user);
+		Map<String, String> params = new HashMap<>();
+		params.put("id", Long.toString(user.getId()));
+		restTemplate.put(requestUri, user, params);
+		
+		return user;
 	}	
 
 	
@@ -63,8 +68,5 @@ public class UserManagerImpl implements UserManager{
 		restTemplate.delete(requestUri, params);
 	}
 
-	
-//	Map<String, String> params = new HashMap<>();
-//	params.put("id", Long.toString(user.getId()));
-//	restTemplate.put(requestUri, user, params);
+
 }
