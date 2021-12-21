@@ -19,21 +19,4 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 		return new String[]{"/"};
 	}
 	
-	
-	
-	
-	
-//    public void onStartup(ServletContext container) throws ServletException {
-// 
-//        AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
-//        ctx.register(WebConfig.class);
-//        ctx.setServletContext(container);
-// 
-//        ServletRegistration.Dynamic servlet = container.addServlet(
-//                "dispatcher", new DispatcherServlet(ctx));
-// 
-//        servlet.setLoadOnStartup(1);
-//        servlet.addMapping("/");
-//    }
- 
 }

@@ -1,15 +1,8 @@
 package com.wts.njp.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.wts.njp.model.UserView;
@@ -44,6 +37,10 @@ public class HomeController {
 	@RequestMapping(value= "/allusers")
 	public ModelAndView allusers() {
 		return new ModelAndView("allusers");
+	}
+	@RequestMapping(value= "/updateForm")
+	public ModelAndView updateForm() {
+		return new ModelAndView("updateForm");
 	}
 	
 	@RequestMapping(value="/signup", method=RequestMethod.GET)

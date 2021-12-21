@@ -13,13 +13,8 @@ import com.wts.njp.model.User;
 @Transactional
 public class UserServiceImpl implements UserService{
 	
-	
-    UserDao userDao;
-    
-    @Autowired
-	public void setUserDao(UserDao dao) {
-		this.userDao = dao;
-	}
+	@Autowired
+    private UserDao userDao;
 
 	@Override
 	public List<User> listAllUsers() {

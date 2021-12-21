@@ -22,32 +22,32 @@
 <body ng-app="myApp" class="ng-cloak">
 	<p><a href="/">Return to Homepage</a></p> 
 	
-	<div class="signup-form">
+	<div class="signup-form" ng-controller="UserController as ctrl">
 		<h2 class="text-center">Sign Up</h2>
-		<form name="userForm" method="POST" action="addUser">
+			<form name="userForm"  class="signup-form" ng-submit="ctrl.submit()" action="services">
+			
+			<input type="hidden" ng-model="ctrl.user.id" />
 			<div class="form-group">
-				<label>Name</label>
-				<input type="text" name="name" class="form-control" required="required"
-					placeholder="Please input your full name:"></input>
+				<label>Name</label> 
+				<input type="text" ng-model="ctrl.user.name" id="age" class="name form-control input-sm"  placeholder="Enter your name:" required="required">
 			</div>
 			
 			<div class="form-group">
-				<label>Age (Optional)</label>
-				<input type="number" name="age" class="form-control" 
-					placeholder="Please input your age:"></input>
+				<label>Age</label> 
+				<input type="number" ng-model="ctrl.user.age" id="age" class="age form-control input-sm" placeholder="Enter your age:">
 			</div>
 			
 			<div class="form-group">
-				<label>Email</label>
-					<input type="email" name="email" class="form-control" required="required"
-						placeholder="Please input your email:"></input>
+				<label>Email</label> 
+				<input type="email" ng-model="ctrl.user.email" id="email" class="email form-control input-sm" placeholder="Enter your email:">
 			</div>
 			
-			<div class="form-group">
-				<div class="form-actions floatRight">
-					<input type="submit" value="Sign Up" class="btn btn-primary btn-sm">
-				</div>
-			</div>
+			<div class="row">
+                <div class="form-actions floatRight">
+                	<input type="submit"  value="Sign Up" class="btn btn-primary btn-sm">
+                    <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="userForm.$pristine">Reset Form</button>
+            	</div>
+            </div>
 		</form>
 	</div>
 </body>

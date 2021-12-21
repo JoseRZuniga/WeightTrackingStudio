@@ -14,38 +14,38 @@
 
 <title>Updating User</title>
 </head>
-<body>
- 	<p><a href="/">Return to Homepage</a></p> 
- 
-  	<div class="signup-form">
-  		<form:form action="update" method="post" modelAttribute="userForm">
-	        <h2 class="text-center">Update Form</h2>
-	        <form:hidden path="id"/>
-	        
-	        	<div class="form-group">
-					<label>Name:</label>
-					<form:input path="name" class="form-control" required="required"
-					placeholder="Please input your full name:"/>
-				</div>
-				
-				<div class="form-group">
-					<label>Age:</label>
-					<form:input path="age" class="form-control" 
-					placeholder="Please input your age:"/>
-				</div>
-				
-				<div class="form-group">
-					<label>Email: </label>
-					<form:input path="email" class="form-control" required="required"
-						placeholder="Please input your email:"/>
-				</div>
-				
-				<div class="form-group">
-					<div class="form-actions floatRight">
-						<input type="submit" value="Update" class="btn btn-primary btn-sm">
-					</div>
-				</div>
-	    </form:form>
-  	</div>
+<body ng-app="myApp" class="ng-cloak">
+	<p><a href="/">Return to Homepage</a></p> 
+	
+	<div class="signup-form" ng-controller="UserController as ctrl">
+		<h2 class="text-center">Sign Up</h2>
+			<form name="userForm"  class="signup-form" ng-submit="ctrl.submit()">
+			
+			<input type="hidden" ng-model="ctrl.user.id" />
+			<div class="form-group">
+				<label>Name</label> 
+				<input type="text" ng-model="ctrl.user.name" id="age" class="name form-control input-sm"  placeholder="Enter your name:" required="required">
+			</div>
+			
+			<div class="form-group">
+				<label>Age</label> 
+				<input type="number" ng-model="ctrl.user.age" id="age" class="age form-control input-sm" placeholder="Enter your age:">
+			</div>
+			
+			<div class="form-group">
+				<label>Email</label> 
+				<input type="email" ng-model="ctrl.user.email" id="email" class="email form-control input-sm" placeholder="Enter your email:">
+			</div>
+			
+			<div class="row">
+                <div class="form-actions floatRight">
+                	<a href="allusers">
+                		<input type="submit"  value="Update" class="btn btn-primary btn-sm">
+                	</a>
+                    <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="userForm.$pristine">Reset Form</button>
+            	</div>
+            </div>
+		</form>
+	</div>
 </body>
 </html>

@@ -19,6 +19,7 @@
 		<jetty.stop.port>9000</jetty.stop.port>
 		<spring.version>4.0.6.RELEASE</spring.version>
 		<cglib.version>3.2.10</cglib.version>
+		<slf4jVersion>1.6.1</slf4jVersion>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 	</properties>
@@ -68,10 +69,9 @@
 
 		<!-- Logging -->
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.14</version>
-			<scope>runtime</scope>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4jVersion}</version>
 		</dependency>
 
 		<!-- JSR-330 for @Inject -->
@@ -101,19 +101,12 @@
 			<version>2.9.8</version>
 		</dependency>
 
-		<!-- Testing dependencies -->
+		<!-- Testing dependencies add testng -->
         <dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
-		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client -->
-		<dependency>
-		    <groupId>org.eclipse.jetty</groupId>
-		    <artifactId>jetty-client</artifactId>
-		    <version>10.0.1</version>
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->

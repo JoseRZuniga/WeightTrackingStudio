@@ -18,14 +18,14 @@ public class UserManagerImpl implements UserManager{
 	private final String restURL = "http://localhost:8082/";
 	
 	@Autowired
-	private RestTemplate restTemplate; //= new RestTemplate(requestFactory);
+	private RestTemplate restTemplate;
 
-	
+	@Override
 	public List<UserView> listAllUsers() {
 		String requestUri  = restURL + "user/";
 		UserView[] response = restTemplate.getForObject(requestUri , UserView[].class);
 		List<UserView> users = new ArrayList<>();
-		
+	
 		for(UserView user : response) {
 			users.add(user);
 		}
@@ -33,19 +33,23 @@ public class UserManagerImpl implements UserManager{
 		return users;
 	}
 
-	
-	public void saveUser(UserView user) {
+	@Override // anything that is public, return something not just void
+	public UserView saveUser(UserView user) {
 		String requestUri  = restURL + "user/";
 		restTemplate.postForObject(requestUri , user, UserView.class);
+		return user;
 	}
 	
-	
-	public void updateUser(UserView user) {
+	@Override
+	public UserView updateUser(UserView user) {
 		String requestUri  = restURL + "user/{id}";
-		restTemplate.put(requestUri, user);
+		Map<String, String> params = new HashMap<>();
+		params.put("id", Long.toString(user.getId()));
+		restTemplate.put(requestUri, user, params);
+		return user;
 	}	
 
-	
+	@Override
 	public UserView findUserById(Long id) {
 		String requestUri  = restURL + "user/{id}";
 		Map<String, String> params = new HashMap<>();
@@ -54,7 +58,7 @@ public class UserManagerImpl implements UserManager{
 		return restTemplate.getForObject(requestUri , UserView.class, params);
 	}
 
-	
+	@Override
 	public void deleteUser(Long id) {
 		String requestUri  = restURL + "user/{id}";
 		Map<String, String> params = new HashMap<>();
@@ -64,7 +68,4 @@ public class UserManagerImpl implements UserManager{
 	}
 
 	
-//	Map<String, String> params = new HashMap<>();
-//	params.put("id", Long.toString(user.getId()));
-//	restTemplate.put(requestUri, user, params);
 }

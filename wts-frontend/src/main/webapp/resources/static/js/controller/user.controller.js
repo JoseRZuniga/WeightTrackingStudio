@@ -98,23 +98,4 @@ angular.module('myApp').controller('UserController', ['$scope', 'UserService', f
         $scope.userForm.$setPristine(); 
     }
 
-//    	self.fetchAllUsers = function(){
-//			UserService.fetchAllUsers().then(function(data){
-//				self.users = data;
-//			});
-//		}
-//		
-//		self.createUser = function(user){
-//			return UserService.createUser(self.user).then(function(){
-//				self.fetchAllUsers();
-//			});
-//		}
-//		
-//		self.deleteUser = function(id){
-//			return UserService.deleteUser(id).then(function(){
-//				self.fetchAllUsers();
-//			});
-//		}
-//		self.fetchAllUsers();
- 
 }]);

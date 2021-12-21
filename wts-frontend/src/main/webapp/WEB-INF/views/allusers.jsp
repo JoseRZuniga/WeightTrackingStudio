@@ -30,65 +30,14 @@
 		</div>
 	</nav>
 	<br>
-<!-- 	<div class="generic-container" ng-controller="UserController as ctrl"> -->
-<!--           <div class="panel panel-default"> -->
-<!--               <div class="panel-heading"><span class="lead">User Registration Form </span></div> -->
-<!--               <div class="formcontainer"> -->
-<!--                   <form ng-submit="ctrl.submit()" name="myForm" class="form-horizontal"> -->
-<!--                       <input type="hidden" ng-model="ctrl.user.id" /> -->
-<!--                       <div class="row"> -->
-<!--                           <div class="form-group col-md-12"> -->
-<!--                               <label class="col-md-2 control-lable" for="uname">Name</label> -->
-<!--                               <div class="col-md-7"> -->
-<!--                                   <input type="text" ng-model="ctrl.user.name" id="uname" class="username form-control input-sm" placeholder="Enter your name" required ng-minlength="3"/> -->
-<!--                                   <div class="has-error" ng-show="myForm.$dirty"> -->
-<!--                                       <span ng-show="myForm.uname.$error.required">This is a required field</span> -->
-<!--                                       <span ng-show="myForm.uname.$error.minlength">Minimum length required is 3</span> -->
-<!--                                       <span ng-show="myForm.uname.$invalid">This field is invalid </span> -->
-<!--                                   </div> -->
-<!--                               </div> -->
-<!--                           </div> -->
-<!--                       </div> -->
-                         
-                       
-<!--                       <div class="row"> -->
-<!--                           <div class="form-group col-md-12"> -->
-<!--                               <label class="col-md-2 control-lable" for="age">Age</label> -->
-<!--                               <div class="col-md-7"> -->
-<!--                                   <input type="number" ng-model="ctrl.user.age" id="age" class="form-control input-sm" placeholder="Enter your Age. [This field is validation free]"/> -->
-<!--                               </div> -->
-<!--                           </div> -->
-<!--                       </div> -->
- 
-<!--                       <div class="row"> -->
-<!--                           <div class="form-group col-md-12"> -->
-<!--                               <label class="col-md-2 control-lable" for="email">Email</label> -->
-<!--                               <div class="col-md-7"> -->
-<!--                                   <input type="email" ng-model="ctrl.user.email" id="email" class="email form-control input-sm" placeholder="Enter your Email" required/> -->
-<!--                                   <div class="has-error" ng-show="myForm.$dirty"> -->
-<!--                                       <span ng-show="myForm.email.$error.required">This is a required field</span> -->
-<!--                                       <span ng-show="myForm.email.$invalid">This field is invalid </span> -->
-<!--                                   </div> -->
-<!--                               </div> -->
-<!--                           </div> -->
-<!--                       </div> -->
- 
-<!--                       <div class="row"> -->
-<!--                           <div class="form-actions floatRight"> -->
-<!--                               <input type="submit"  value="{{!ctrl.user.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm" ng-disabled="myForm.$invalid"> -->
-<!--                               <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="myForm.$pristine">Reset Form</button> -->
-<!--                           </div> -->
-<!--                       </div> -->
-<!--                   </form> -->
-<!--               </div> -->
-<!--           </div> -->
+
 	<div ng-controller="UserController as ctrl">
 		<div class="tablecontainer">
 		
 		<form name="userForm"  class="signup-form" ng-submit="ctrl.submit()">
 			<br>
 			<br>
-			<h2 class="text-center">Sign Up</h2>
+			<h2 class="text-center">Update Form</h2>
 			
 			<input type="hidden" ng-model="ctrl.user.id" />
 			<div class="form-group">
@@ -108,7 +57,7 @@
 			
 			<div class="row">
                           <div class="form-actions floatRight">
-                              <input type="submit"  value="{{!ctrl.user.id ? 'Add' : 'Update'}}" class="btn btn-primary btn-sm">
+                              <input type="submit"  value="Update" class="btn btn-primary btn-sm">
                               <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" ng-disabled="userForm.$pristine">Reset Form</button>
                           </div>
                       </div>

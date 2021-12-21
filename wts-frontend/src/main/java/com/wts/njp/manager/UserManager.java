@@ -8,9 +8,10 @@ public interface UserManager {
 	
 	List<UserView> listAllUsers();
 	
-	void saveUser(UserView user);
 	
-	void updateUser(UserView user);
+	// Return user
+	UserView saveUser(UserView user);
+	UserView updateUser(UserView user);
 	
 	UserView findUserById(Long id);
 	

@@ -33,14 +33,11 @@ public class UserController {
         
         return new ResponseEntity<List<UserView>>(users, HttpStatus.OK);
     }
-	
     
     @RequestMapping(value = "/user/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<UserView> getUser(@PathVariable("id") Long id) {
-    	System.out.println("Fetching User with id " + id);
         UserView user = userManager.findUserById(id);
         if (user == null) {
-            System.out.println("User with id " + id + " not found");
             return new ResponseEntity<UserView>(HttpStatus.NOT_FOUND);
         }
         
@@ -48,9 +45,7 @@ public class UserController {
     }
 	
     @RequestMapping(value = "/user/", method = RequestMethod.POST)
-    public ResponseEntity<Void> createUser(@RequestBody UserView user,    UriComponentsBuilder ucBuilder) {
-    	System.out.println("Creating User " + user.getName());
-    	
+    public ResponseEntity<Void> createUser(@RequestBody UserView user, UriComponentsBuilder ucBuilder) {
     	userManager.saveUser(user);
   
     	HttpHeaders headers = new HttpHeaders();
@@ -80,92 +75,4 @@ public class UserController {
         return new ResponseEntity<UserView>(HttpStatus.NO_CONTENT);
     }
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-//	@Autowired
-//	UserService userService;
-//	
-//
-//    @RequestMapping(value = "/list" , method = RequestMethod.GET)
-//    public ModelAndView listUsers() {
-//    	
-//    	ModelAndView model = new ModelAndView("allusers");
-//        List<User> list = userService.listAllUsers();
-//        
-//        model.addObject("list", list);
-//        
-//        return model;
-//    }
-//    
-//    
-//    @RequestMapping(value = "/add", method = RequestMethod.GET)
-//    public ModelAndView addUser() {
-//    	ModelAndView model = new ModelAndView("registration");
-//    	User user = new User();
-//    	
-//    	model.addObject("userForm", user);
-//    	
-//    	return model;
-//    }
-//    
-//    @RequestMapping(value = "/save", method = RequestMethod.POST)
-//    public ModelAndView saveUser (@ModelAttribute ("userForm") User user) {
-//    	ModelAndView model = new ModelAndView("success");
-//    	userService.saveOrUpdate(user);
-//    	
-//    	model.addObject("success",  user.getName() + " was added successfully.");
-//    	
-//    	return model;
-//    }
-//    
-//    @RequestMapping(value = "/update", method = RequestMethod.POST)
-//    public ModelAndView update (@ModelAttribute ("userForm") User user) {
-//    	userService.saveOrUpdate(user);
-//    	
-//    	return new ModelAndView("redirect:/list");
-//    }
-//    
-//    
-//    @RequestMapping(value = "/update-{id}", method = RequestMethod.GET)
-//    public ModelAndView updateUser(@PathVariable("id") Integer id) {
-//    	ModelAndView model = new ModelAndView("updateForm");
-//    	User user = userService.findUserById(id);
-//    	
-//    	model.addObject("userForm", user);
-//    	
-//    	return model;
-//    }
-//    
-//    @RequestMapping(value = "/delete-{id}", method = RequestMethod.GET)
-//    public ModelAndView deleteUser(@PathVariable("id") Integer id) {
-//    	userService.deleteUser(id);
-//    	
-//    	return new ModelAndView("redirect:/list");
-//    }
-//    
-//    
-//    
-    
 }
