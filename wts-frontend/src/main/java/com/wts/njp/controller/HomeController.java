@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.wts.njp.model.LogView;
 import com.wts.njp.model.UserView;
 
 
@@ -45,6 +46,10 @@ public class HomeController {
 	public ModelAndView allusers() {
 		return new ModelAndView("allusers");
 	}
+	@RequestMapping(value= "/logging")
+	public ModelAndView logging() {
+		return new ModelAndView("logging");
+	}
 	
 	@RequestMapping(value="/signup", method=RequestMethod.GET)
 	public ModelAndView user() {
@@ -54,6 +59,11 @@ public class HomeController {
 	@RequestMapping(value="/addUser")
 	public ModelAndView addUser(UserView user) {
 		return new ModelAndView("userDisplay", "submittedUser", user);
+	}
+
+	@RequestMapping(value="/logUser")
+	public ModelAndView addUser(LogView log) {
+		return new ModelAndView("logDisplay", "submittedLog", log);
 	}
 	
 }
